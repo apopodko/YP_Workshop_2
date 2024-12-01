@@ -62,34 +62,37 @@
     - `main_campaign` - основная кампания рассылки
  
 ![image](https://github.com/user-attachments/assets/b82d1d0a-f22f-4a79-b906-9a0f0cc22529)
-![image](https://github.com/user-attachments/assets/2dc568d5-46a5-459f-8855-afc563198bec)
+![image](https://github.com/user-attachments/assets/9779542f-0de5-47f1-a170-770148403d19)
+
 
 
  
   ## Модель
 - С помощью оптимизационного поиска HyperOpt и кроссвалидацией с 2 фолдами подобрали гиперпараметры для LGBMClassifier:
-    - `feature_fraction` = 0.51
+    - `feature_fraction` = 0.5
     - `learning_rate` = 0.002
     - `max_depth` = 2
-    - `n_estimators` = 2000
-    - `reg_lambda` = 3.31
+    - `n_estimators` = 3000
+    - `reg_lambda` = 1.48
     - `scale_pos_weight` = 51
 
 - Рамзер тестовой выборки - 0.2
 
   
 - В результате на тестовой выборке получилась следующая метрики:
-    - `ROC-AUC` - 0.759
-    - `Weigthed Recall` - 0.609
-    - `Weighted F1 score` - 0.844
-![image](https://github.com/user-attachments/assets/2f5eae18-e4df-4d3b-955a-38b0159b3347)
+    - `ROC-AUC` - 0.76
+    - `Weigthed Recall` - 0.63
+    - `Weighted F1 score` - 0.843
+![image](https://github.com/user-attachments/assets/f4aa06af-246e-4ed6-9f0c-a9f366860bd1)
+
 
 
 - Для более прикладного результата выбрали порог 0.7 для классификатора, чтобы около 10% клиентов, на которых заказчик направил усилия совершили покупку. В результате получаются следующие метрики:
-    - `ROC-AUC` - 0.759
-    - `Weigthed Recall` - 0.292
-    - `Weighted F1 score` - 0.951
-![image](https://github.com/user-attachments/assets/d51daa61-2633-4ce4-9b98-694c30170887)
+    - `ROC-AUC` - 0.760
+    - `Weigthed Recall` - 0.297
+    - `Weighted F1 score` - 0.949
+![image](https://github.com/user-attachments/assets/746c5a35-6412-43c5-b271-916ae846c6a4)
+
     
     
 - Наиоблее важными признаками для модели являются:
